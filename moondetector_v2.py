@@ -110,7 +110,7 @@ while True:
 	key = cv2.waitKey(1) & 0xFF
 	# if the 's' key is selected, we are going to "select" a bounding
 	# box to track
-	if i % 100 == 0:
+	if i % 1000 == 0:
 		
 		# Try to detect the moon in the frame
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #gray_scale the image
