@@ -110,7 +110,7 @@ while True:
 	key = cv2.waitKey(1) & 0xFF
 	# if the 's' key is selected, we are going to "select" a bounding
 	# box to track
-	if key == ord("s"):
+	if i % 100 == 0:
 		
 		# Try to detect the moon in the frame
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) #gray_scale the image
@@ -140,7 +140,7 @@ while True:
 		initBB = [moon[0]-alpha*moon[2], moon[1]-alpha*moon[2], 2*alpha*moon[2], 2*alpha*moon[2]]
 		initBB = list(map(int, initBB))
 		# print(f"Selection = {type(initBB_select)},  {initBB_select}")
-		print(f"Automatic = {type(initBB)},  {initBB}")
+		# print(f"Automatic = {type(initBB)},  {initBB}")
 
 		# start OpenCV object tracker using the supplied bounding box
 		# coordinates, then start the FPS throughput estimator as well
@@ -149,6 +149,8 @@ while True:
 	# if the `q` key was pressed, break from the loop
 	elif key == ord("q"):
 		break
+
+	i += 1
 """
 # if we are using a webcam, release the pointer
 if not args.get("video", False):
